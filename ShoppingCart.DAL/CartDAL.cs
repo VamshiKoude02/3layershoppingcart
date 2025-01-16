@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoppingCart.BLL
+namespace ShoppingCart.DAL
 {
-    public class Class1
+    public class CartDAL
     {
     }
 }

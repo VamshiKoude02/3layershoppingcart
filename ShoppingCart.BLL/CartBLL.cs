@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoppingCart.UI
+namespace ShoppingCart.BLL
 {
-    internal class Program
+    public class CartBLL
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
