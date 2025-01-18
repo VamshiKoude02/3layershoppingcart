@@ -28,3 +28,6 @@ namespace ShoppingCart.Domain
     }
 
 }
+
+
+[dbo].[Cart][dbo].[OrderHistory][dbo].[Orders][dbo].[Products][dbo].[Users]
