@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ShoppingCart.Domain;
+using ShoppingCart.UI;
 
 namespace ShoppingCart.UI
 {
@@ -11,7 +12,8 @@ namespace ShoppingCart.UI
     {
         static void Main(string[] args)
         {
-            Users.UserVerification();
+            Users users = new Users();
+            users.UserVerification();
             Console.Read();
         }
     }

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CartUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingInterface.cs" />
     <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
