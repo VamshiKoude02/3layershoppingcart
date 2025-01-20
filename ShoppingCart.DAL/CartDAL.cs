@@ -50,7 +50,7 @@ namespace ShoppingCart.DAL
             return UserList;
         }
 
-        public void NewUser(string name, string username, string password, string phonenumber)
+        public void InsertNewUser(string name, string username, string password, string phonenumber)
         {
             try
             {
@@ -97,6 +97,25 @@ namespace ShoppingCart.DAL
                 Console.WriteLine(ex.StackTrace);
             }
             return products;
+        }
+
+        public void UpdateQuantity(int productid, int quantity)
+        {
+            try
+            {
+                da = new SqlDataAdapter($"select * from products where productid = {productid}", con);
+                dt.Clear();
+                da.Fill(dt);
+                DataRow dr = dt.Rows[0];
+                dr["quantity"] = quantity;
+                SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(da);
+                da.Update(dt);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
         }
     }
 }

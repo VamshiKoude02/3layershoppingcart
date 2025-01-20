@@ -23,9 +23,10 @@ namespace ShoppingCart.UI
             UserList = cartbll.GetUserList();
             ShoppingInterface = new ShoppingInterface();
         }
-
-
-
+        public string UserName(string username)
+        {
+            return ShoppingInterface.UserName(username);
+        }
         public void UserRegistration()
         {
 
@@ -69,13 +70,11 @@ namespace ShoppingCart.UI
                 Console.WriteLine("Phone Number must be 10 Digits. Please Re-Enter");
                 goto ReEnterPhoneNumber;
             }
-            cartbll.NewUser(user.Name, user.UserName, user.Password, user.PhoneNumber);
-            Console.WriteLine("User Registered Successfully. Redirecting to Login page...");
-            UserLogin();
+            cartbll.InsertNewUser(user.Name, user.UserName, user.Password, user.PhoneNumber);
+            Console.WriteLine("User Registered Successfully. Redirecting...");
+            UserName(user.UserName);
+            ShoppingInterface.ShoppingOptions();
         }
-
-
-
         public void UserLogin()
         {
             EnterValidCredentails:
@@ -87,8 +86,8 @@ namespace ShoppingCart.UI
             if (UserCredentailsList.Any(cred => cred.UserName == user.UserName && cred.Password == user.Password))
             {
                 Console.WriteLine("Login Successful.");
+                UserName(user.UserName);
                 ShoppingInterface.ShoppingOptions();
-
             }
             else
             {
@@ -96,19 +95,16 @@ namespace ShoppingCart.UI
                 goto EnterValidCredentails;
             }
         }
-
-
-
         public void UserVerification()
         {
             Console.WriteLine("Do You Want to 1.Register (or) 2.Login?");
             RorL:
-            string input = Console.ReadLine().ToLower();
-            if (input == "1")
+            int input = Convert.ToInt32(Console.ReadLine());
+            if (input == 1)
             {
                 UserRegistration();
             }
-            else if (input == "2")
+            else if (input == 2)
             {
                 UserLogin();
             }
@@ -117,19 +113,6 @@ namespace ShoppingCart.UI
                 Console.WriteLine("Enter Correct Input..!");
                 goto RorL;
             }
-            //if (input == "register")
-            //{
-            //    UserRegistration();
-            //}
-            //else if (input == "login")
-            //{
-            //    UserLogin();
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Enter Correct Input..!");
-            //    goto RorL;
-            //}
         }
     }
 }

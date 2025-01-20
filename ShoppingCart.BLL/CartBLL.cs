@@ -14,19 +14,24 @@ namespace ShoppingCart.BLL
 
         public CartBLL()
         {
-            cartdal = new CartDAL();
+            cartdal = new CartDAL(); 
+
         }
         public  List<UsersDetails> GetUserList()
         {
             return cartdal.GetUserList();
         }
-        public void NewUser(string name,string username , string password , string phonenumber)
+        public void InsertNewUser(string name,string username , string password , string phonenumber)
         {
-            cartdal.NewUser(name, username, password, phonenumber);
+            cartdal.InsertNewUser(name, username, password, phonenumber);
         }
         public List<ProductDetails> GetProductList()
         {
             return cartdal.GetProductList();
+        }
+        public void UpdateQuantity(int productid, int Quantity)
+        {
+            cartdal.UpdateQuantity(productid,Quantity);
         }
     }
 }

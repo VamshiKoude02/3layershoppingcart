@@ -27,7 +27,13 @@ namespace ShoppingCart.Domain
         public int Quantity { get; set; }
     }
 
+    public class CartItemDetails
+    {
+        public int ProductID { get; set; }
+        public string UserName { get; set; }
+        public double TotalPrice { get; set; }
+        public int TotalQuantity { get; set; }
+    }
 }
 
 
-[dbo].[Cart][dbo].[OrderHistory][dbo].[Orders][dbo].[Products][dbo].[Users]
